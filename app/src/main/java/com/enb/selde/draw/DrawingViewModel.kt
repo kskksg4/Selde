@@ -49,8 +49,12 @@ class DrawingViewModel: BaseViewModel() {
             context.contentResolver.openFileDescriptor(item, "w", null).use {
                 FileOutputStream(it!!.fileDescriptor).use { outputStream ->
                     try {
-                        val resizeBitmap = resizeBitmap(draw.width, backgroundBitmap.get()!!)
-//                        saveBitmapToJpgMediaStore(bitmapOverlay(resizeBitmap, draw), outputStream)
+                        if(backgroundBitmap.get() != null){
+                            val resizeBitmap = resizeBitmap(draw.width, backgroundBitmap.get()!!)
+                            saveBitmapToJpgMediaStore(bitmapOverlay(resizeBitmap, draw), outputStream)
+                        }else{
+                            saveBitmapToJpgMediaStore(draw, outputStream)
+                        }
 
                         result = true
                     } catch (e: Exception) {

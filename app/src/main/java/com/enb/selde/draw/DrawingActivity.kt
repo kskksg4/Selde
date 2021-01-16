@@ -35,7 +35,7 @@ class DrawingActivity : BaseActivity<ActivityDrawingBinding>() {
         viewDataBinding.lifecycleOwner = this
 
         viewModel.verifyStoragePermissions(this)
-//        viewModel.imgUrl.set("https://stock-image-testserver.s3.ap-northeast-2.amazonaws.com/joboa1.jpg")
+        viewModel.imgUrl.set("https://stock-image-testserver.s3.ap-northeast-2.amazonaws.com/joboa1.jpg")
 
         addDisposable(RxBus.listen(RxEvent.EventIsLandscape::class.java)
             .subscribe {
@@ -54,7 +54,7 @@ class DrawingActivity : BaseActivity<ActivityDrawingBinding>() {
         }
 
         fab_send_drawing.setOnClickListener {
-            val bitmap = draw_view.getBitmap()
+            val bitmap = draw_view.getBitmap(viewModel.backgroundBitmap.get() != null)
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                 if (viewModel.addDrawToGalleryMediaStore(this, bitmap)) {

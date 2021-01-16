@@ -95,10 +95,16 @@ class DrawView @JvmOverloads constructor(
         }
     }
 
-    fun getBitmap(): Bitmap {
+    fun getBitmap(isBackground: Boolean): Bitmap {
         val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(bitmap)
-        canvas.drawColor(Color.TRANSPARENT)
+
+        if (isBackground){
+            canvas.drawColor(Color.TRANSPARENT)
+        }else{
+            canvas.drawColor(Color.WHITE)
+        }
+
         mIsSaving = true
         draw(canvas)
         mIsSaving = false

@@ -1,11 +1,9 @@
 package com.enb.selde.utils
 
-import android.app.ActionBar
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import android.text.TextUtils
 import android.util.Log
-import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.BindingAdapter
@@ -13,7 +11,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.target.ViewTarget
 import com.bumptech.glide.request.transition.Transition
-import com.enb.selde.R
 import com.enb.selde.draw.widget.DrawView
 
 @BindingAdapter("drawBackground")
